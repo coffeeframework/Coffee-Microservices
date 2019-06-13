@@ -30,8 +30,9 @@ public class Controller {
 	@RequestMapping(value = "/varXML2Hlvl", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public String varXML2Hlvl(@RequestBody JSONObject data) throws Exception {
-
+		System.out.println("Hola");
 		System.out.println(data.get("data"));
+		
 		VariamosXMLToHlvlParser vParser = new VariamosXMLToHlvlParser();
 	
 	return vParser.parse((String) data.get("data"));
