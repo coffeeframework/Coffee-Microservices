@@ -1,0 +1,32 @@
+version: '3'
+services:
+  coffe_mp:
+    restart: always
+    image: "i2thub.icesi.edu.co:5000/coffeemp:v1"
+    networks:
+      - proxy
+    deploy:
+      replicas: 1
+      labels: 
+        com.df.distribute: "true"
+        com.df.notify: "true"
+        com.df.port: 9090
+        com.df.servicePath: "/coffeMP"
+    
+
+  coffee_hlvlp:
+    restart: always  
+    image: "i2thub.icesi.edu.co:5000/coffeehlvlp:v1"
+    networks:
+      - proxy
+    deploy:
+      replicas: 1
+      labels: 
+        com.df.distribute: "true"
+        com.df.notify: "true"
+        com.df.port: 7070
+        com.df.servicePath: "/coffeHLVLP"
+
+networks: 
+  proxy: 
+    external: true

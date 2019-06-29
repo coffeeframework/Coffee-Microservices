@@ -1,0 +1,16 @@
+{
+  "id": "picat_sat_cmd_line",
+  "name": "picat_sat_cmd_line",
+  "description": "Picat FlatZinc solver command line",
+  "version": "2.5",
+  "mznlib": "-Gpicat_sat",
+  "executable": "/home/Picat/picat.bat",
+  "tags": ["cp","int"],
+  "stdFlags": ["-a","-n","-p","-r"],
+  "supportsMzn": false,
+  "supportsFzn": true,
+  "needsSolns2Out": true,
+  "needsMznExecutable": false,
+  "needsStdlibDir": false,
+  "isGUIApplication": false
+}
