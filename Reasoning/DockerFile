@@ -25,37 +25,44 @@ RUN wget https://github.com/MiniZinc/MiniZincIDE/releases/download/2.3.0/MiniZin
 #Descromprimimos el archivo .tgz
 RUN tar xf MiniZincIDE-2.3.0-bundle-linux-x86_64.tgz
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/bin
-#RUN wget https://raw.githubusercontent.com/joancolina819/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/scrips/ConfiguradorEntorno.sh
-#RUN ls
-#RUN bash ConfiguradorEntorno.sh
-#RUN  sudo -s
-#RUN no | sudo dpkg-reconfigure dash
-#RUN  export PATH=$PATH:/home/MiniZincIDE-2.3.0-bundle-linux/bin  
-#RUN source  ~/.bash_profile  
+
 ENV PATH="/home/MiniZincIDE-2.3.0-bundle-linux/bin:${PATH}"
 RUN echo $PATH 
 RUN minizinc --solvers
 #PATH=$PATH:/Users/Angela/Coffee/apache-maven-3.6.0/bin
 #Descargamos Picat
 WORKDIR /home
+RUN sudo apt update 
+RUN  yes | sudo apt install nano
 RUN wget http://picat-lang.org/download/picat26_linux64.tar.gz
 RUN tar xf picat26_linux64.tar.gz
+WORKDIR /home/Picat/lib
+RUN chmod +x *
 
 #Descargamos las librerias de picat
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/share/minizinc
-RUN wget http://picat-lang.org/flatzinc/picat_globals.tar.gz -O picat_sat
-RUN tar xf picat_sat
+RUN wget http://picat-lang.org/flatzinc/picat_globals.tar.gz
+RUN tar xf picat_globals.tar.gz
+RUN mv globals picat_sat
 
 #Descargando el .msc que necesita minizinc para funcionar
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/share/minizinc/solvers
-RUN wget https://raw.githubusercontent.com/joancolina819/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/msc/picat_sat_cmd_line.msc
-RUN ls
+RUN wget https://github.com/joancolina819/Coffee-Microservices/raw/master/Reasoning/archivos%20de%20solvers/msc/picat_sat_cmd_line.msc
+RUN ls -la
 #Descargando el .sh que necesita picat para funcionar
 WORKDIR /home/Picat
-RUN wget https://github.com/joancolina819/Coffee-Microservices/blob/master/Reasoning/archivos%20de%20solvers/sh%20files/picat.sh
-RUN ls
+RUN wget https://raw.githubusercontent.com/joancolina819/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/sh%20files/picat.sh
+RUN chmod +x picat.sh
+RUN ls 
 #Clonamos el repositorio de JminiZinc
 WORKDIR /home
-RUN git clone https://github.com/siemens/JMiniZinc
+#RUN git clone https://github.com/siemens/JMiniZinc
 RUN ls 
+ENV PATH="/home/Picat:${PATH}"
+RUN echo $PATH 
+RUN git clone https://github.com/joancolina819/Coffee-Microservices
 RUN minizinc --solvers
+WORKDIR /home/Coffee-Microservices/Reasoning/visibleTarget
+RUN ls
+EXPOSE 9091
+ENTRYPOINT ["java","-jar", "Reasoning-0.0.1-SNAPSHOT.jar"]

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: Joan David
+Class-Path: lib/core-1.jar lib/javax.json-api-1.1.4.jar lib/json-simpl
+ e-1.1.1.jar lib/javax.json-1.1.jar
+Build-Jdk: 1.8.0_201
+Created-By: Maven Integration for Eclipse
+Main-Class: com.coffee.com.coffee.reasoning.Reasoning
+
