@@ -1,9 +1,0 @@
-FROM openjdk
-MAINTAINER Joan David Colina <joancolina819@gmail.com>
-COPY target ./app
-WORKDIR /app
-RUN ls
-ENTRYPOINT ["java","-jar", "ParserCoffeServer-0.0.1-SNAPSHOT.jar"]
-
-
-
