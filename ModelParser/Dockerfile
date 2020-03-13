@@ -20,14 +20,9 @@ RUN  apt-get update \
   && apt-get install -y wget \
   && rm -rf /var/lib/apt/lists/*
 #Clonamos el repositorio
-WORKDIR /home
-RUN git clone https://github.com/joancolina819/Coffee-Microservices
-WORKDIR /home/Coffee-Microservices/HLVLParser
-#RUN ls
-#RUN java -jar /home/Coffee-Microservices/HLVLParser/dependencies/HLVLParserV1.2.jar /home/Coffee-Microservices/HLVLParser/hlvl/modelX.hlvl
-ENTRYPOINT ["java","-jar", "HLVLParser-0.0.1-SNAPSHOT.jar"]
-
-
-
+RUN git clone https://github.com/coffeeframework/Coffee-Microservices
+WORKDIR /home/Coffee-Microservices/ModelParser
+EXPOSE 9090
+ENTRYPOINT ["java","-jar", "ParserCoffeServer-0.0.1-SNAPSHOT.jar"]
 
 

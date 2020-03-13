@@ -47,11 +47,11 @@ RUN mv globals picat_sat
 
 #Descargando el .msc que necesita minizinc para funcionar
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/share/minizinc/solvers
-RUN wget https://github.com/joancolina819/Coffee-Microservices/raw/master/Reasoning/archivos%20de%20solvers/msc/picat_sat_cmd_line.msc
+RUN wget https://github.com/coffeeframework/Coffee-Microservices/raw/master/Reasoning/archivos%20de%20solvers/msc/picat_sat_cmd_line.msc
 RUN ls -la
 #Descargando el .sh que necesita picat para funcionar
 WORKDIR /home/Picat
-RUN wget https://raw.githubusercontent.com/joancolina819/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/sh%20files/picat.sh
+RUN wget https://raw.githubusercontent.com/coffeeframework/Coffee-Microservices/master/Reasoning/archivos%20de%20solvers/sh%20files/picat.sh
 RUN chmod +x picat.sh
 RUN ls 
 #Clonamos el repositorio de JminiZinc
@@ -60,7 +60,7 @@ WORKDIR /home
 RUN ls 
 ENV PATH="/home/Picat:${PATH}"
 RUN echo $PATH 
-RUN git clone https://github.com/joancolina819/Coffee-Microservices
+RUN git clone https://github.com/coffeeframework/Coffee-Microservices
 RUN minizinc --solvers
 WORKDIR /home/Coffee-Microservices/Reasoning/visibleTarget
 RUN ls
