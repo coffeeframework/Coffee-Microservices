@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.coffee.modelParsers.featureIDEToHlvlParser.FeatureIDEToHLVL;
 import com.coffee.modelParsers.varXmlToHLVLParser.VariamosXMLToHlvlParser;
 
+import splot2HLVL.Splot2HlvlParser;
+
+
+
 @RestController
 public class Controller {
 
@@ -34,9 +38,9 @@ public class Controller {
 	@CrossOrigin
 	@RequestMapping(value = "/coffeMP/splot2Hlvl", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
-	public String splot2Hlvl(@RequestBody String data) {
-
-		return "";
+	public String splot2Hlvl(@RequestBody JSONObject data) throws Exception {
+		Splot2HlvlParser sParser = new Splot2HlvlParser();
+		return sParser.parse((String)data.get("data"));
 	}
 
 }
