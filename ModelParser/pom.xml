@@ -29,6 +29,37 @@
 		    <artifactId>coffeeVariamos</artifactId>
 		    <version>2</version>
 		</dependency>--> 
+		
+		<!-- Coffee Framework Dependencies -->
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>featureidetohlvl</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>varxmltohlvl</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>basichlvlpackage</artifactId>
+		  <version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>atthlvlpackage</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>expressionhlvlpackage</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+				
+		<!-- Coffee Framework Dependencies -->
+		
+		
 		<dependency>
 		    <groupId>com.googlecode.json-simple</groupId>
 		    <artifactId>json-simple</artifactId>
@@ -42,6 +73,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>

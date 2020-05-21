@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.coffee.com.coffee.reasoning.Reasoning;
 
+
+
 @RestController
 public class Controller {
 
@@ -31,9 +33,8 @@ public class Controller {
 	@RequestMapping(value = "/reasoning/oneConfiguration", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public String oneConfiguration(@RequestBody JSONObject model) throws Exception {
-		String data = (String) model.get("data");
-		String mnz = data.split("separadorcoffee")[0];
-		String modelData = data.split("separadorcoffee")[1];
+		String mnz = model.get("mnz").toString();
+		String modelData = model.get("json").toString();
 		Reasoning reasoning = new Reasoning();
 		JsonObject solution = reasoning.coffeeCompile(mnz, FRONTEND_DATA, modelData, 1);
 		return solution.get("solutions") + "";

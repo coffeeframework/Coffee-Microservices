@@ -1,25 +1,41 @@
 model  Auto_generated
 elements: 
-	boolean Sala_de_juegos
-	boolean Banera
-	boolean Cuarto_secundario
-	boolean ducha
-	boolean Lava_Platos
-	boolean Garaje
-	boolean Orno
-	boolean Casa
-	boolean Bano
-	boolean Cocina
-	boolean Cuarto_Principal
-	boolean Biblioteca
+	boolean HDTV42
+	boolean PCPlayer
+	boolean Cache
+	boolean HDTV32
+	boolean ControlSystem
+	boolean Provider_A
+	boolean MoviePlayers
+	boolean Provider_B
+	boolean Contents
+	boolean Ethernet
+	boolean 3G
+	boolean WifiMinusb
+	boolean VideoOnDemand
+	boolean Digital_Media_Server
+	boolean WifiMinusn
+	boolean Cellphone
+	boolean Control_Panel
+	boolean Smart_Home
+	boolean Lighting
+	boolean AntiMinustheft_Alarm
+	boolean Providers
+	boolean Internet
 relations:
-	r0: common(Casa)
-	r1:group(Casa,[Cocina, Bano, Cuarto_Principal, Cuarto_secundario],[1,*])
-	r2:group(Casa,[Biblioteca, Sala_de_juegos],[1,*])
-	r3:group(Bano,[Banera, ducha],[1,*])
-	r4:decomposition(Lava_Platos,[Cocina],[1,1])
-	r5:decomposition(Cocina,[Orno],[0,1])
-	r6: implies(Cuarto_Principal,Bano)
-	r7:decomposition(Bano,[Cuarto_secundario],[0,1])
-	r8:decomposition(Casa,[Garaje],[0,1])
-	r9: mutex(Biblioteca, Sala_de_juegos)
+	r0:group(Providers,[Provider_A, Provider_B],[1,*])
+	r1:group(Contents,[Digital_Media_Server, VideoOnDemand],[1,*])
+	r2:group(ControlSystem,[Cellphone, Control_Panel],[1,*])
+	r3: common(Smart_Home)
+	r4:group(Internet,[Ethernet, 3G, WifiMinusb, WifiMinusn],[1,*])
+	r5:group(MoviePlayers,[HDTV42, PCPlayer, HDTV32],[1,*])
+	r6:decomposition(Lighting,[Smart_Home],[1,1])
+	r7:decomposition(Smart_Home,[AntiMinustheft_Alarm],[0,1])
+	r8:decomposition(ControlSystem,[Smart_Home],[1,1])
+	r9:decomposition(Smart_Home,[MoviePlayers],[0,1])
+	r10:decomposition(Smart_Home,[Contents],[0,1])
+	r11:decomposition(VideoOnDemand,[Cache],[0,1])
+	r12:decomposition(Providers,[VideoOnDemand],[1,1])
+	r13:decomposition(Smart_Home,[Internet],[0,1])
+	r14: implies(AntiMinustheft_Alarm,Control_Panel)
+	r15: implies(VideoOnDemand,Internet)

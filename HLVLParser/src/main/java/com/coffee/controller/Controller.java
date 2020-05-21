@@ -30,6 +30,7 @@ public class Controller {
 	@RequestMapping(value = "/coffeeHLVLP/hlvlParser", method = RequestMethod.POST, produces = "text/plain")
 	@ResponseBody
 	public String hlvlParser(@RequestBody JSONObject data) throws Exception {
+		System.out.println( "1"  );
 		String content = (String) data.get("data");
 		return HLVLParser.runGenerator(content);
 	}
@@ -38,6 +39,7 @@ public class Controller {
 	@RequestMapping(value = "/coffeeHLVLP/hlvlParserFile", method = RequestMethod.POST, produces = "text/plain")
 	@ResponseBody
 	public String hlvlParserFile(@RequestBody JSONObject data) throws Exception {
+		System.out.println( ">>>: hlvlParserFile"  );
 		String content = (String) data.get("data");
 		fileCreator.getName(content);
 		fileCreator.createFile(content);
@@ -47,6 +49,7 @@ public class Controller {
 	}
 
 	private void parseHLVL() throws InterruptedException, IOException {
+		System.out.println( ">>>: parseHLVL"  );
 		List<String> params = new ArrayList<String>();
 		String command = "java -jar "+ "\"" + DIR + "/dependencies/HLVLParserV1.4.jar"+ "\" " + "\"" +DIR+ HLVL_DIR + FileManager.DEFAULT_NAME+ ".hlvl"+ "\"";
 		params.add(command);

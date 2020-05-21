@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 
 import org.springframework.stereotype.Component;
 
+import com.google.gson.Gson;
+
 @Component
 public class FileManager {
 
@@ -34,12 +36,18 @@ public class FileManager {
 	}
 
 	public String fileReader() throws IOException {
+		System.out.println( ">>>: fileReader [Creating JSON]");
 		byte[] encoded = Files.readAllBytes(Paths.get(Controller.DIR + "/src-gen/"+modelName+".mzn"));
 		String mzn = new String(encoded, "UTF-8");
 
 		encoded = Files.readAllBytes(Paths.get(Controller.DIR + "/src-gen/"+modelName+"_Operations.json"));
 		String json = new String(encoded, "UTF-8");
-
-		return mzn + "separadorcoffee" + json;
+		
+		HLVLParserWrapper wrapper  = new HLVLParserWrapper(mzn,json);
+		Gson gson = new Gson();
+		String example =  gson.toJson(wrapper);
+		System.out.println(example);
+		
+		return example;
 	}
 }
