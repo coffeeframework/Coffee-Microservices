@@ -2,6 +2,8 @@ FROM ubuntu
 MAINTAINER Joan David Colina <joancolina819@gmail.com>
 
 WORKDIR /home
+ENV TZ=America/Bogota
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #Instalmos sudo
 RUN apt-get update && apt-get install -y sudo
@@ -13,7 +15,7 @@ RUN yes | sudo apt install maven
 RUN mvn -version
 #Instalamos java
 RUN sudo apt update 
-RUN  yes | sudo apt install default-jdk
+RUN yes | sudo apt install -y openjdk-8-jdk
 RUN   java -version
 #instalamos wget 
 RUN  apt-get update \
