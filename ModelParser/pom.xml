@@ -29,6 +29,17 @@
 
 	<dependencies>
 
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.github.coffeeframework</groupId> -->
+<!-- 			<artifactId>featureidetohlvl</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.github.coffeeframework</groupId> -->
+<!-- 			<artifactId>varxmltohlvl</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
+
 		<!-- Coffee Framework Dependencies -->
 		<dependency>
 		  <groupId>com.github.coffeeframework</groupId>
@@ -41,10 +52,26 @@
 		  <version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.github.coffeeframework</groupId>
-			<artifactId>splottohlvl</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>	
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>splottohlvl</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>basichlvlpackage</artifactId>
+		  <version>0.0.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>atthlvlpackage</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.github.coffeeframework</groupId>
+		  <artifactId>expressionhlvlpackage</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
+				
 		<!-- Coffee Framework Dependencies -->
 		
 		
@@ -73,9 +100,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
-
 	<build>
 		<plugins>
 
