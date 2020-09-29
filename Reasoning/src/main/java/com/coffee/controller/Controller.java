@@ -33,7 +33,8 @@ public class Controller {
 	@RequestMapping(value = "/reasoning/oneConfiguration", method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public String oneConfiguration(@RequestBody JSONObject model) throws Exception {
-		String mnz = model.get("mnz").toString();
+		System.out.println(model.toJSONString());
+		String mnz = model.get("mzn").toString();
 		String modelData = model.get("json").toString();
 		Reasoning reasoning = new Reasoning();
 		JsonObject solution = reasoning.coffeeCompile(mnz, FRONTEND_DATA, modelData, 1);

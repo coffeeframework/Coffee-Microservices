@@ -33,6 +33,7 @@ public class FileManager {
 	public void getName(String model) {
 		String aux = model.split("elements: ")[0];
 		modelName = aux.substring(7,aux.length()-1);
+		System.out.println("modelName: " + modelName);
 	}
 
 	public String fileReader() throws IOException {

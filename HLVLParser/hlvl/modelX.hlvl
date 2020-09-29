@@ -1,41 +1,22 @@
 model  Auto_generated
 elements: 
-	boolean HDTV42
-	boolean PCPlayer
-	boolean Cache
-	boolean HDTV32
-	boolean ControlSystem
-	boolean Provider_A
-	boolean MoviePlayers
-	boolean Provider_B
-	boolean Contents
-	boolean Ethernet
-	boolean 3G
-	boolean WifiMinusb
-	boolean VideoOnDemand
-	boolean Digital_Media_Server
-	boolean WifiMinusn
-	boolean Cellphone
-	boolean Control_Panel
-	boolean Smart_Home
-	boolean Lighting
-	boolean AntiMinustheft_Alarm
-	boolean Providers
-	boolean Internet
+	boolean Mobile_Phone
+	boolean Colour
+	boolean Camera
+	boolean Calls
+	boolean High_Resolution
+	boolean MP3
+	boolean GPS
+	boolean Screen
+	boolean Media
+	boolean Basic
 relations:
-	r0:group(Providers,[Provider_A, Provider_B],[1,*])
-	r1:group(Contents,[Digital_Media_Server, VideoOnDemand],[1,*])
-	r2:group(ControlSystem,[Cellphone, Control_Panel],[1,*])
-	r3: common(Smart_Home)
-	r4:group(Internet,[Ethernet, 3G, WifiMinusb, WifiMinusn],[1,*])
-	r5:group(MoviePlayers,[HDTV42, PCPlayer, HDTV32],[1,*])
-	r6:decomposition(Lighting,[Smart_Home],[1,1])
-	r7:decomposition(Smart_Home,[AntiMinustheft_Alarm],[0,1])
-	r8:decomposition(ControlSystem,[Smart_Home],[1,1])
-	r9:decomposition(Smart_Home,[MoviePlayers],[0,1])
-	r10:decomposition(Smart_Home,[Contents],[0,1])
-	r11:decomposition(VideoOnDemand,[Cache],[0,1])
-	r12:decomposition(Providers,[VideoOnDemand],[1,1])
-	r13:decomposition(Smart_Home,[Internet],[0,1])
-	r14: implies(AntiMinustheft_Alarm,Control_Panel)
-	r15: implies(VideoOnDemand,Internet)
+	r0: common(Mobile_Phone)
+	r1:group(Screen,[Basic, Colour, High_Resolution],[1,1])
+	r2:group(Media,[Camera, MP3],[1,*])
+	r3:decomposition(Calls,[Mobile_Phone],[1,1])
+	r4:decomposition(Mobile_Phone,[GPS],[0,1])
+	r5:decomposition(Screen,[Mobile_Phone],[1,1])
+	r6:decomposition(Mobile_Phone,[Media],[0,1])
+	r7: implies(Camera,High_Resolution)
+	r8: mutex(Basic, GPS)
