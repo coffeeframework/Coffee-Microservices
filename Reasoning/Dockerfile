@@ -37,15 +37,16 @@ RUN minizinc --solvers
 WORKDIR /home
 RUN sudo apt update 
 RUN  yes | sudo apt install nano
-RUN wget http://picat-lang.org/download/picat26_linux64.tar.gz
-RUN tar xf picat26_linux64.tar.gz
+RUN wget http://picat-lang.org/download/picat30_1_linux64.tar.gz
+RUN tar xf picat30_1_linux64.tar.gz
 WORKDIR /home/Picat/lib
 RUN chmod +x *
 
 #Descargamos las librerias de picat
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/share/minizinc
+RUN mkdir globals
 RUN wget http://picat-lang.org/flatzinc/picat_globals.tar.gz
-RUN tar xf picat_globals.tar.gz
+RUN tar -C globals -xf picat_globals.tar.gz
 RUN mv globals picat_sat
 
 #Descargando el .msc que necesita minizinc para funcionar
