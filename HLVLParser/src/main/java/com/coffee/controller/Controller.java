@@ -30,9 +30,10 @@ public class Controller {
 	@RequestMapping(value = "/coffeeHLVLP/hlvlParser", method = RequestMethod.POST, produces = "text/plain")
 	@ResponseBody
 	public String hlvlParser(@RequestBody JSONObject data) throws Exception {
-		System.out.println( "1"  );
+		System.out.println("1");
 		String content = (String) data.get("data");
-		return HLVLParser.runGenerator(content);
+		return "";
+		//return HLVLParser.runGenerator(content);
 	}
 	
 	@CrossOrigin
@@ -52,9 +53,11 @@ public class Controller {
 		System.out.println( ">>>: parseHLVL"  );
 		List<String> params = new ArrayList<String>();
 		String command = "java -jar "+ "\"" + DIR + "/dependencies/HLVLParserV1.4.jar"+ "\" " + "\"" +DIR+ HLVL_DIR + FileManager.DEFAULT_NAME+ ".hlvl"+ "\"";
+		System.out.println(command);
 		params.add(command);
 		executor.setCommandInConsole(params);
 		executor.runCmd();
+		System.out.println(executor.getDebugLog());
 	}
 
 }

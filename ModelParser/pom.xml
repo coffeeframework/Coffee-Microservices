@@ -29,17 +29,6 @@
 
 	<dependencies>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.github.coffeeframework</groupId> -->
-<!-- 			<artifactId>featureidetohlvl</artifactId> -->
-<!-- 			<version>0.0.1-SNAPSHOT</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.github.coffeeframework</groupId> -->
-<!-- 			<artifactId>varxmltohlvl</artifactId> -->
-<!-- 			<version>0.0.1-SNAPSHOT</version> -->
-<!-- 		</dependency> -->
-
 		<!-- Coffee Framework Dependencies -->
 		<dependency>
 		  <groupId>com.github.coffeeframework</groupId>

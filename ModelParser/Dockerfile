@@ -25,6 +25,7 @@ RUN  apt-get update \
 RUN git clone https://github.com/coffeeframework/Coffee-Microservices
 WORKDIR /home/Coffee-Microservices/ModelParser
 EXPOSE 9090
+RUN chmod +x /start.sh
 ENTRYPOINT ["java","-jar", "ParserCoffeServer-0.0.1-SNAPSHOT.jar"]
 
 
