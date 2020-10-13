@@ -28,7 +28,8 @@ WORKDIR /home/Coffee-Microservices/HLVLParser
 #RUN ls
 #RUN java -jar /home/Coffee-Microservices/HLVLParser/dependencies/HLVLParserV1.2.jar /home/Coffee-Microservices/HLVLParser/hlvl/modelX.hlvl
 EXPOSE 7071
-ENTRYPOINT ["java","-jar", "HLVLParser-0.0.1-SNAPSHOT.jar"]
+RUN chmod +x start.sh
+ENTRYPOINT ["bash","start.sh"]
 
 
 

@@ -69,4 +69,5 @@ RUN minizinc --solvers
 WORKDIR /home/Coffee-Microservices/Reasoning/visibleTarget
 RUN ls
 EXPOSE 9091
-ENTRYPOINT ["java","-jar", "Reasoning-0.0.1-SNAPSHOT.jar"]
+RUN chmod +x start.sh
+ENTRYPOINT ["bash","start.sh"]
