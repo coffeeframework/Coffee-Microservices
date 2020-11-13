@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.coffee.com.coffee.reasoning.Reasoning;
+import com.coffee.reasoning.Reasoning;
 
 
 
@@ -37,8 +37,9 @@ public class Controller {
 		String mnz = model.get("mzn").toString();
 		String modelData = model.get("json").toString();
 		Reasoning reasoning = new Reasoning();
-		JsonObject solution = reasoning.coffeeCompile(mnz, FRONTEND_DATA, modelData, 1);
-		return solution.get("solutions") + "";
+		JsonObject solution = reasoning.coffeeCompile(mnz, FRONTEND_DATA, modelData, 2);
+		return solution.toString();
+		//return solution.get("solutions") + "";
 	}
 
 	@CrossOrigin
