@@ -65,7 +65,7 @@
 		    <artifactId>reasoning</artifactId>
 		    <version>1.0</version>
 		    <scope>system</scope>
-		    <systemPath>${project.basedir}/dependencies/reasoningmodel-0.0.1-SNAPSHOT-jar-with-dependencies.jar</systemPath>
+		    <systemPath>${project.basedir}/dependencies/reasoning.jar</systemPath>
 		</dependency>
 	</dependencies>
 	
