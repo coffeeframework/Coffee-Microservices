@@ -30,7 +30,11 @@ RUN tar xf MiniZincIDE-2.3.0-bundle-linux-x86_64.tgz
 WORKDIR /home/MiniZincIDE-2.3.0-bundle-linux/bin
 
 ENV PATH="/home/MiniZincIDE-2.3.0-bundle-linux/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/home/MiniZincIDE-2.3.0-bundle-linux/lib:$LD_LIBRARY_PATH"
+ENV QT_PLUGIN_PATH="/home/MiniZincIDE-2.3.0-bundle-linux/plugins:$QT_PLUGIN_PATH"
 RUN echo $PATH 
+RUN echo $LD_LIBRARY_PATH 
+RUN echo $QT_PLUGIN_PATH 
 RUN minizinc --solvers
 #PATH=$PATH:/Users/Angela/Coffee/apache-maven-3.6.0/bin
 #Descargamos Picat
