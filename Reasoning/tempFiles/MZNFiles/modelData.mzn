@@ -2,25 +2,25 @@
 % Author: avillota
 % Variables from elements definitions 
 var bool : Mobile_Phone ;
+var bool : Colour ;
+var bool : Camera ;
 var bool : Calls ;
+var bool : High_Resolution ;
+var bool : MP3 ;
 var bool : GPS ;
 var bool : Screen ;
-var bool : Basic ;
-var bool : Colour ;
-var bool : High_resolution ;
 var bool : Media ;
-var bool : Camera ;
-var bool : MP3 ;
+var bool : Basic ;
 % Variables and constraints from the variability relations definition
 constraint Mobile_Phone == true ;
-constraint Mobile_Phone <-> Calls ;
-constraint GPS -> Mobile_Phone ;
-constraint Mobile_Phone <-> Screen ;
-constraint Basic <-> (not(Colour) /\ not(High_resolution) /\ Screen) ;
-constraint Colour <-> (not(Basic) /\ not(High_resolution) /\ Screen) ;
-constraint High_resolution <-> (not(Basic) /\ not(Colour) /\ Screen) ;
-constraint Media -> Mobile_Phone ;
+constraint Basic <-> (not(Colour) /\ not(High_Resolution) /\ Screen) ;
+constraint Colour <-> (not(Basic) /\ not(High_Resolution) /\ Screen) ;
+constraint High_Resolution <-> (not(Basic) /\ not(Colour) /\ Screen) ;
 constraint Media <-> ( Camera \/ MP3 ) ;
-constraint (not(GPS) \/ not(Basic));
-constraint (not(Camera) \/ High_resolution);
+constraint Calls <-> Mobile_Phone ;
+constraint GPS -> Mobile_Phone ;
+constraint Screen <-> Mobile_Phone ;
+constraint Media -> Mobile_Phone ;
+constraint Camera -> High_Resolution ;
+constraint not (Basic /\ GPS);
 % The solving parameters from the parameters files
