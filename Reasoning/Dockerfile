@@ -70,7 +70,7 @@ ENV PATH="/home/Picat:${PATH}"
 RUN echo $PATH 
 RUN git clone https://github.com/coffeeframework/Coffee-Microservices
 RUN minizinc --solvers
-WORKDIR /home/Coffee-Microservices/Reasoning/visibleTarget
+WORKDIR /home/Coffee-Microservices/Reasoning
 RUN ls
 EXPOSE 9091
 RUN chmod +x start.sh
